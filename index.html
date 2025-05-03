@@ -4,64 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Прогулка по Бишкеку</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      background: #d3f0ff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    canvas {
-      border: 2px solid #000;
-      margin-top: 20px;
-      background-color: #fff;
-    }
-
-    #controls {
-      margin-top: 10px;
-    }
-
-    button {
-      font-size: 18px;
-      padding: 10px;
-      margin: 5px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Прогулка по Бишкеку</h1>
-  <canvas id="game" width="300" height="300"></canvas>
-  <div id="controls">
-    <button onclick="move('up')">⬆️</button><br>
-    <button onclick="move('left')">⬅️</button>
-    <button onclick="move('down')">⬇️</button>
-    <button onclick="move('right')">➡️</button>
+  <div class="game-container">
+    <h1>Прогулка по Бишкеку</h1>
+    <div id="location-text"></div>
+    <button id="next-button">Далее</button>
   </div>
 
-  <script>
-    const canvas = document.getElementById('game');
-    const ctx = canvas.getContext('2d');
-    let player = { x: 140, y: 140 };
-
-    function draw() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = 'green';
-      ctx.fillRect(player.x, player.y, 20, 20);
-    }
-
-    function move(direction) {
-      const step = 10;
-      if (direction === 'up') player.y -= step;
-      if (direction === 'down') player.y += step;
-      if (direction === 'left') player.x -= step;
-      if (direction === 'right') player.x += step;
-      draw();
-    }
-
-    draw();
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
